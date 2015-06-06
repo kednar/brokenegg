@@ -31,6 +31,7 @@
     <sprite>sprites\chicken_run</sprite>
     <sprite>sprites\chicken_idle_sit</sprite>
     <sprite>sprites\chicken_idle_pick</sprite>
+    <sprite>sprites\chicken_still</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
