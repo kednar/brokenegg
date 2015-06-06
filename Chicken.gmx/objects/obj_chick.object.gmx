@@ -3,7 +3,7 @@
   <spriteName>spr_chick_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,10 +27,44 @@
             <kind>1</kind>
             <string>mother = instance_nearest(x,y,obj_chicken)
 
+xx = x-(mother).x;
+dir = 1;
+grav = 0.1;
+hsp = 0;
+vsp = -1;
+fearofheights = 0;
+wait = 1;
+alarm[0] = 30;
+
 moving = 0;
-movespeed = 2;
+movespeed = 1.2;
 
 distance = 20; // pixels of distance to mother required before starting to move
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>xx = x-(mother).x
+if (xx &gt; 0) dir = (-1); else dir = 1;
+wait = 0;
 </string>
           </argument>
         </arguments>
@@ -53,18 +87,170 @@ distance = 20; // pixels of distance to mother required before starting to move
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if moving == 1
+            <string>vsp += grav;
+
+// Horizontal Collision
+if (place_meeting(x+hsp,y,obj_collision))
+    {
+    while (!place_meeting(x+sign(hsp),y,obj_collision))
+        {
+        x += sign(hsp); // slow down for pixel perfect collision
+        }
+    hsp = 0;
+    dir *= -1;  // make enemy change direction
+    }
+
+// Vertical Collision
+if (place_meeting(x,y+vsp,obj_collision))
+    {
+    while (!place_meeting(x,y+sign(vsp),obj_collision))    
+        {
+        y += sign(vsp);
+        }
+    vsp = 0;
+    if (fearofheights) &amp;&amp; !position_meeting(x+(sprite_width/2)*dir, y+(sprite_height/2)+8, obj_wall_32x32)
+        {
+        dir *= -1; // don't fall of ledges if fearofheights = 1
+        }    
+    }
+
+// MOVEMENT
+if (wait = 0) &amp;&amp; (xx &lt;= (distance*dir) || xx &gt;= -(distance*dir))
+    {
+    moving = 1;
+    }
+
+hsp = dir * movespeed; // basic horizontal movement
+y += vsp;
+
+if moving == 1
     {
     sprite_index = spr_chick_walk;
-    if mp_linear_step(mother.x,y,movespeed,0)
+    image_xscale = dir;
+    x += hsp;
+    if ((xx)*(xx)) &lt;= 4
         {
         moving = 0;
         sprite_index = spr_chick_idle;
+        alarm[0] = 20;
+        wait = 1;
         }
     }
-
-if sign(x-mother.x) &gt;= distance moving = 1;
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>xx</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>moving</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y+20</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>dir</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y+40</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>sign(xx)</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y+60</string>
           </argument>
         </arguments>
       </action>

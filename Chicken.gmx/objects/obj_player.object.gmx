@@ -3,7 +3,7 @@
   <spriteName>spr_chicken_still</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -74,9 +74,9 @@ egg_delay = 60;
 // Get the player's input
 key_right = keyboard_check(vk_right);
 key_left = -keyboard_check(vk_left);
-key_fly = keyboard_check(vk_space);
+key_fly = keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
-key_layegg = keyboard_check_pressed(ord("X"));
+key_layegg = keyboard_check_pressed(vk_space);
 
 // Basic Movement
 move = key_left + key_right;
