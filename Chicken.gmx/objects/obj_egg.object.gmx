@@ -28,14 +28,86 @@
             <string>/// Initialize Values
 
 hdir = -(global.hdir);
-timer = 30;
+timer = 60;
 
 vsp = -2;
-hsp = 3*(hdir);
+hsp = 3.5*(hdir);
 grav = 0.15;
 
 break_egg = 0;
-breaking_point = 3; // velocity at which egg breaks on impact
+breaking_point = 4; // velocity at which egg breaks on impact
+
+hatching = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(x,y,obj_portal);
+instance_create(x,y,obj_broken_egg);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>vsp = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>vsp = -1;
 </string>
           </argument>
         </arguments>
@@ -58,7 +130,7 @@ breaking_point = 3; // velocity at which egg breaks on impact
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timer = 60;
+            <string>vsp = -1;
 </string>
           </argument>
         </arguments>
@@ -88,11 +160,6 @@ breaking_point = 3; // velocity at which egg breaks on impact
 
 if (vsp &lt; 3) vsp += grav;
 
-if (hdir = -1 &amp;&amp; hsp &gt; 0) || (hdir = 1 &amp;&amp; hsp &lt; 0)
-    {
-    hsp = 0;
-    }
-
 // Vertical Collision
 if (place_meeting(x,y+vsp,obj_collision))
     {
@@ -105,7 +172,7 @@ if (place_meeting(x,y+vsp,obj_collision))
         y += sign(vsp);
         }
     vsp = 0;
-    timer = 5; // slow down the egg horizontally when it hits bottom
+//    timer = 30; // slow down the egg horizontally when it hits bottom
     }
 
 if (place_meeting(x,y+(sprite_height/2),obj_collision)) &amp;&amp; (break_egg = 1)
@@ -125,10 +192,24 @@ if (place_meeting(x+hsp,y,obj_collision))
     }
     
 // Rotation
-image_angle += (hsp * 5);
+image_angle += (hsp * 10);
 
 x += hsp;
 y += vsp;
+
+if (hdir = -1 &amp;&amp; hsp &gt; 0) || (hdir = 1 &amp;&amp; hsp &lt; 0)
+    {
+    hsp = 0;
+    }
+    
+if hsp = 0 &amp;&amp; hatching = 0
+    {
+    alarm[0] = 240;
+    alarm[1] = 360;
+    alarm[2] = 420;
+    alarm[3] = 600;
+    hatching = 1;
+    }
 </string>
           </argument>
         </arguments>

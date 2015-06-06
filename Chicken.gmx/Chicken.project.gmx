@@ -36,6 +36,7 @@
     <sprite>sprites\spr_egg_03</sprite>
     <sprite>sprites\spr_egg_04</sprite>
     <sprite>sprites\spr_egg_05</sprite>
+    <sprite>sprites\spr_farmer</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -57,6 +58,7 @@
     <object>objects\obj_platform</object>
     <object>objects\obj_platformH</object>
     <object>objects\obj_broken_egg</object>
+    <object>objects\obj_farmer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>
