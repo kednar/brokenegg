@@ -52,12 +52,25 @@
   </views>
   <instances>
     <instance objName="obj_player" x="172" y="142" name="inst_5E7AD81F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collision" x="0" y="88" name="inst_55B36B8E" locked="0" code="" scaleX="1.5" scaleY="44" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collision" x="226" y="178" name="inst_17248D05" locked="0" code="" scaleX="112.5" scaleY="2.5" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collision" x="1280" y="32" name="inst_82B99598" locked="0" code="" scaleX="0.100000001490116" scaleY="0.100000001490116" colour="4294967295" rotation="93"/>
-    <instance objName="obj_collision" x="1280" y="32" name="inst_A13F9489" locked="0" code="" scaleX="0.100000001490116" scaleY="0.100000001490116" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collision" x="638" y="88" name="inst_F353E9FC" locked="0" code="" scaleX="1" scaleY="45" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collision" x="550" y="176" name="inst_703928BE" locked="0" code="" scaleX="49.5" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_collision" x="1" y="88" name="inst_55B36B8E" locked="0" code="" scaleX="0.5" scaleY="44" colour="4294967295" rotation="0"/>
+    <instance objName="obj_collision" x="226" y="176" name="inst_17248D05" locked="0" code="" scaleX="112" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_collision" x="638" y="88" name="inst_F353E9FC" locked="0" code="" scaleX="1" scaleY="43" colour="4294967295" rotation="0"/>
+    <instance objName="obj_collision" x="544" y="176" name="inst_703928BE" locked="0" code="" scaleX="47.5" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="310" y="162" name="inst_5E68A1B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="432" y="150" name="inst_62BEC02B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="362" y="144" name="inst_050F3808" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="52" y="160" name="inst_74E92607" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="232" y="162" name="inst_1F213641" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="84" y="150" name="inst_14130ED6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="44" y="116" name="inst_B6B99920" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="126" y="114" name="inst_D8AD41AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="214" y="108" name="inst_8E2691B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="296" y="132" name="inst_3D99B920" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="364" y="110" name="inst_38A37E49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="442" y="110" name="inst_46259BB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="526" y="104" name="inst_FC8D84CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="536" y="146" name="inst_B0DA3C92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="470" y="142" name="inst_681ED08C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

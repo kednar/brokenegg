@@ -35,7 +35,7 @@ movespeed = 1.5;
 key_down = 0;
 
 flying = 0;
-flyspeed = 0.1;
+flyspeed = 0.06;
 flyspeed_max = 2
 
 global.hdir = 1; // for egg propulsion direction
@@ -215,7 +215,7 @@ if key_layegg
           </argument>
           <argument>
             <kind>4</kind>
-            <string>2</string>
+            <string>1</string>
           </argument>
         </arguments>
       </action>

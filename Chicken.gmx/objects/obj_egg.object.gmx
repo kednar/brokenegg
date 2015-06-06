@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize Values
 
-hdir = global.hdir;
+hdir = -(global.hdir);
 timer = 30;
 
 vsp = -4;
@@ -37,7 +37,7 @@ grav = 0.2;
 alarm[0] = 120;
 
 break_egg = 0;
-breaking_point = 8; // velocity at which egg breaks on impact
+breaking_point = 6; // velocity at which egg breaks on impact
 </string>
           </argument>
         </arguments>
