@@ -33,24 +33,18 @@ vsp = 0;
 grav = 0.2;
 movespeed = 4;
 key_down = 0;
-jumps = 0;
-jumpsmax = 2;
+
+flying = 0;
+flyspeed = 0.2;
+flyspeed_max = 4
+
 shoot_direction = point_direction(x,y,x-15,y-15);
-
-jumpspeed_normal = 7;
-jumpspeed_powerup= 10;
-
-jumpspeed = jumpspeed_normal;
-
 hdir = 1; // for egg propulsion direction
 
-countdown = 0;
-
-if (global.checkpointR == room)
-    {
-    x = global.checkpointx;
-    y = global.checkpointy;
-    }
+stamina = 100;
+stamina_max = 100;
+stamina_loss = 1;
+stamina_recovery = 0.5;
 </string>
           </argument>
         </arguments>
@@ -78,7 +72,7 @@ if (global.checkpointR == room)
 // Get the player's input
 key_right = keyboard_check(vk_right);
 key_left = -keyboard_check(vk_left);
-key_jump = keyboard_check_pressed(vk_space);
+key_fly = keyboard_check(vk_space);
 key_down = keyboard_check(vk_down);
 key_layegg = keyboard_check_pressed(ord("X"));
 
@@ -86,25 +80,20 @@ key_layegg = keyboard_check_pressed(ord("X"));
 move = key_left + key_right;
 hdir = move;
 hsp = move * movespeed;
-if (vsp &lt; 10) vsp += grav;
 
-// Jumping
-if (place_meeting(x,y+1,obj_collision)) 
+// Flying
+if (key_fly) &amp;&amp; (stamina &gt; 0)
     {
-    jumps = jumpsmax;
+    flying = 1;
+    if (vsp &gt; -flyspeed_max) vsp -= flyspeed;
+    stamina -= stamina_loss;
     }
-
-if (key_jump) &amp;&amp; (jumps &gt; 0)
+if flying = 0
     {
-    vsp = -jumpspeed;
-    jumps -= 1;
+    if (stamina &lt; stamina_max) stamina += stamina_recovery;
+    if (vsp &lt; 10) vsp += grav;
     }
-    
-// Wall Jump
-if (key_jump) &amp;&amp; (place_meeting(x+1,y,obj_collision) || place_meeting(x-1,y,obj_collision))
-    {
-    vsp = -jumpspeed;
-    }
+flying = 0;
     
 // Horizontal Movement
 var hsp_final = hsp + hsp_carry;
@@ -157,34 +146,6 @@ if key_layegg
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Lay Eggs
-key_layegg = keyboard_check_pressed(ord("X"));
-
-if key_layegg
-    {
-    shoot_direction = point_direction(x,y,x+(hdir*(15)),y-15);
-    instance_create(x,y,obj_egg);
-    }
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -203,7 +164,7 @@ if key_layegg
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>countdown</string>
+            <string>stamina</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -253,7 +214,7 @@ if key_layegg
           </argument>
           <argument>
             <kind>0</kind>
-            <string>countdown</string>
+            <string>stamina+10</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -285,7 +246,7 @@ if key_layegg
         <arguments>
           <argument>
             <kind>2</kind>
-            <string>Power Jump!</string>
+            <string>Stamina</string>
           </argument>
           <argument>
             <kind>0</kind>
