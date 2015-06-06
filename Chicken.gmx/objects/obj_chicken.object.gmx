@@ -38,6 +38,7 @@ vsp = 0;
 fearofheights = 0;
 
 moving = 1;
+hit = 0;
 
 idle_counter = 0;
 dir_counter = 0;
@@ -180,6 +181,14 @@ switch round((random_range(1,4)))
             <kind>1</kind>
             <string>hsp = dir * movespeed; // basic horizontal movement
 vsp += grav;
+
+// Check if hit by Egg
+if hit = 1
+    {
+    moving = 0;
+    sprite_index = spr_chicken_hit;
+    alarm[3] = 30;
+    }
 
 // Horizontal Collision
 if (place_meeting(x+hsp,y,obj_collision))

@@ -31,6 +31,7 @@ hdir = -(global.hdir);
 timer = 60;
 
 vsp = -2;
+max_vspeed = 3;
 hsp = 3.5*(hdir);
 grav = 0.15;
 
@@ -158,7 +159,7 @@ instance_create(x,y,obj_broken_egg);
     hsp -= (hdir*(1/timer)); // slow down egg horizontally in right direction, first 30 then 60
     }
 
-if (vsp &lt; 3) vsp += grav;
+if (vsp &lt; max_vspeed) vsp += grav;
 
 // Vertical Collision
 if (place_meeting(x,y+vsp,obj_collision))
@@ -189,6 +190,14 @@ if (place_meeting(x+hsp,y,obj_collision))
         x += sign(hsp);
         }
     hsp = 0;
+    }
+
+// Collision with Chicken
+if (place_meeting(x+hsp,y,obj_chicken) &amp;&amp; sign(hsp) &gt; 2) || ((place_meeting(x,y+vsp,obj_chicken) &amp;&amp; vsp &gt; 2))
+    {
+    instance_create(other.x,other.y,obj_broken_egg);
+    other.hit = 1;
+    instance_destroy();
     }
     
 // Rotation

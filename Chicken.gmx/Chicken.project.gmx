@@ -47,9 +47,7 @@
     <background>background\bck_granja</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <script>scripts\scr_idle_behavior.gml</script>
-  </scripts>
+  <scripts name="scripts"/>
   <objects name="objects">
     <object>objects\obj_egg</object>
     <object>objects\obj_collision</object>
