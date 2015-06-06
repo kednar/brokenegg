@@ -35,6 +35,7 @@
     <sprite>sprites\spr_chicken_hit</sprite>
     <sprite>sprites\spr_chick_walk</sprite>
     <sprite>sprites\spr_chick_idle</sprite>
+    <sprite>sprites\spr_chick_dance</sprite>
     <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_egg</sprite>
     <sprite>sprites\spr_egg_01</sprite>
