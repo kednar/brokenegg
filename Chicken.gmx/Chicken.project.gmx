@@ -30,6 +30,13 @@
     <sprite>sprites\spr_chicken_idle_sit</sprite>
     <sprite>sprites\spr_chicken_idle_pick</sprite>
     <sprite>sprites\spr_chicken_still</sprite>
+    <sprite>sprites\spr_chicken_fly</sprite>
+    <sprite>sprites\spr_chicken_fall</sprite>
+    <sprite>sprites\spr_egg_01</sprite>
+    <sprite>sprites\spr_egg_02</sprite>
+    <sprite>sprites\spr_egg_03</sprite>
+    <sprite>sprites\spr_egg_04</sprite>
+    <sprite>sprites\spr_egg_05</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
