@@ -27,6 +27,10 @@
       <sprite>sprites\spr_player_fall</sprite>
     </sprites>
     <sprite>sprites\spr_egg</sprite>
+    <sprite>sprites\chicken_walk</sprite>
+    <sprite>sprites\chicken_run</sprite>
+    <sprite>sprites\chicken_idle_sit</sprite>
+    <sprite>sprites\chicken_idle_pick</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
