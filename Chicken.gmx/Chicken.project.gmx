@@ -31,12 +31,15 @@
     <sprite>sprites\spr_chicken_still</sprite>
     <sprite>sprites\spr_chicken_fly</sprite>
     <sprite>sprites\spr_chicken_fall</sprite>
+    <sprite>sprites\spr_chicken_idle_blink</sprite>
+    <sprite>sprites\spr_chicken_hit</sprite>
+    <sprite>sprites\spr_chick_walk</sprite>
+    <sprite>sprites\spr_farmer</sprite>
+    <sprite>sprites\spr_egg</sprite>
     <sprite>sprites\spr_egg_01</sprite>
     <sprite>sprites\spr_egg_02</sprite>
     <sprite>sprites\spr_egg_03</sprite>
-    <sprite>sprites\spr_egg_04</sprite>
-    <sprite>sprites\spr_egg_05</sprite>
-    <sprite>sprites\spr_farmer</sprite>
+    <sprite>sprites\spr_egg_hatch</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
