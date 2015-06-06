@@ -29,6 +29,7 @@
     <sprite>sprites\spr_chicken_idle_sit</sprite>
     <sprite>sprites\spr_chicken_idle_pick</sprite>
     <sprite>sprites\spr_chicken_still</sprite>
+    <sprite>sprites\spr_chicken_still_NPC</sprite>
     <sprite>sprites\spr_chicken_fly</sprite>
     <sprite>sprites\spr_chicken_fall</sprite>
     <sprite>sprites\spr_chicken_idle_blink</sprite>
