@@ -27,16 +27,17 @@
             <kind>1</kind>
             <string>/// Initialize Values
 
-dir = (obj_player).hdir;
+hdir = global.hdir;
 timer = 30;
 
-vsp = -3;
-hsp = 4;
+vsp = -4;
+hsp = 4*(hdir);
 grav = 0.2;
 
 alarm[0] = 120;
 
 break_egg = 0;
+breaking_point = 8; // velocity at which egg breaks on impact
 </string>
           </argument>
         </arguments>
@@ -84,7 +85,7 @@ break_egg = 0;
             <kind>1</kind>
             <string>if hsp != 0
     {
-    hsp = hsp + dir*(1/timer); // slow down egg horizontally in right direction, first 30 then 60
+    hsp -= (hdir*(1/timer)); // slow down egg horizontally in right direction, first 30 then 60
     }
 
 if (vsp &lt; 10) vsp += grav;
@@ -92,7 +93,7 @@ if (vsp &lt; 10) vsp += grav;
 // Vertical Collision
 if (place_meeting(x,y+vsp,obj_collision))
     {
-    if  vsp &gt;= 7
+    if  vsp &gt;= breaking_point
         {
         break_egg = 1;
         }
@@ -122,6 +123,36 @@ if (place_meeting(x+hsp,y,obj_collision))
 x += hsp;
 y += vsp;
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>hdir</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>20</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>140</string>
           </argument>
         </arguments>
       </action>

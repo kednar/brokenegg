@@ -38,8 +38,7 @@ flying = 0;
 flyspeed = 0.2;
 flyspeed_max = 4
 
-shoot_direction = point_direction(x,y,x-15,y-15);
-hdir = 1; // for egg propulsion direction
+global.hdir = 1; // for egg propulsion direction
 
 stamina = 100;
 stamina_max = 100;
@@ -78,7 +77,6 @@ key_layegg = keyboard_check_pressed(ord("X"));
 
 // Basic Movement
 move = key_left + key_right;
-hdir = move;
 hsp = move * movespeed;
 
 // Flying
@@ -139,9 +137,54 @@ else
 /// Lay Eggs
 if key_layegg
     {
-    shoot_direction = point_direction(x,y,x+(hdir*(15)),y-15);
     instance_create(x,y,obj_egg);
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.hdir = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="37">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.hdir = -1;
 </string>
           </argument>
         </arguments>
@@ -271,6 +314,34 @@ if key_layegg
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>613</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.hdir</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>20</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>125</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>
