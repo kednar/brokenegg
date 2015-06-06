@@ -35,11 +35,14 @@ movespeed = 4;
 key_down = 0;
 jumps = 0;
 jumpsmax = 2;
+shoot_direction = point_direction(x,y,x-15,y-15);
 
 jumpspeed_normal = 7;
 jumpspeed_powerup= 10;
 
 jumpspeed = jumpspeed_normal;
+
+hdir = 1; // for egg propulsion direction
 
 countdown = 0;
 
@@ -48,31 +51,6 @@ if (global.checkpointR == room)
     x = global.checkpointx;
     y = global.checkpointy;
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>jumpspeed = jumpspeed_normal;
-sprite_index = spr_player;
-countdown = 0;
 </string>
           </argument>
         </arguments>
@@ -102,9 +80,11 @@ key_right = keyboard_check(vk_right);
 key_left = -keyboard_check(vk_left);
 key_jump = keyboard_check_pressed(vk_space);
 key_down = keyboard_check(vk_down);
+key_layegg = keyboard_check_pressed(ord("X"));
 
 // Basic Movement
 move = key_left + key_right;
+hdir = move;
 hsp = move * movespeed;
 if (vsp &lt; 10) vsp += grav;
 
@@ -166,11 +146,12 @@ else
     {
     if (vsp &lt; 0) sprite_index = spr_player_jump; else sprite_index = spr_player_fall;
     }
-        
-// Powerup Countdown Display
-if countdown &gt; 0
+    
+/// Lay Eggs
+if key_layegg
     {
-     countdown -= 1;
+    shoot_direction = point_direction(x,y,x+(hdir*(15)),y-15);
+    instance_create(x,y,obj_egg);
     }
 </string>
           </argument>
@@ -197,54 +178,9 @@ key_layegg = keyboard_check_pressed(ord("X"));
 
 if key_layegg
     {
+    shoot_direction = point_direction(x,y,x+(hdir*(15)),y-15);
     instance_create(x,y,obj_egg);
     }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_xscale = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_xscale = -1;
 </string>
           </argument>
         </arguments>
