@@ -37,6 +37,9 @@ hsp = 0;
 vsp = 0;
 fearofheights = 0;
 
+egg_counter = 0;
+egg_delay = 60;
+
 moving = 1;
 hit = 0;
 
