@@ -44,6 +44,9 @@ stamina = 100;
 stamina_max = 100;
 stamina_loss = 1;
 stamina_recovery = 0.5;
+
+egg_counter = 0;
+egg_delay = 60;
 </string>
           </argument>
         </arguments>
@@ -89,7 +92,7 @@ if (key_fly) &amp;&amp; (stamina &gt; 0)
 if flying = 0
     {
     if (stamina &lt; stamina_max) stamina += stamina_recovery;
-    if (vsp &lt; 2) vsp += grav;
+    if (vsp &lt; 3) vsp += grav;
     }
 flying = 0;
     
@@ -131,14 +134,17 @@ if (place_meeting(x,y+1,obj_collision))
     }
 else
     {
-    if (vsp &lt; 0) sprite_index = spr_player_jump; else sprite_index = spr_player_fall;
+    if (vsp &lt; 0) sprite_index = spr_chicken_fly; else sprite_index = spr_chicken_fall;
     }
     
 /// Lay Eggs
-if key_layegg
+if (key_layegg) &amp;&amp; (egg_counter &gt;= egg_delay)
     {
-    instance_create(x,y,obj_egg);
+    instance_create(x-((global.hdir)*8),y-5,obj_egg);
+    egg_delay = 120;
+    egg_counter = 0;
     }
+egg_counter += 1;
 </string>
           </argument>
         </arguments>
