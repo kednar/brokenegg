@@ -41,6 +41,7 @@
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\bck_granja</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
