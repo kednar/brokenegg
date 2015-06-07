@@ -30,9 +30,9 @@
 hdir = -(global.hdir);
 timer = 60;
 
-vsp = -2;
+//vsp = -2;
 max_vspeed = 3;
-hsp = 3.5*(hdir);
+//hsp = 3.5*(hdir);
 grav = 0.15;
 
 break_egg = 0;
@@ -164,7 +164,7 @@ vsp = -1;
             <kind>1</kind>
             <string>if hsp != 0
     {
-    hsp -= (hdir*(1/timer)); // slow down egg horizontally in right direction, first 30 then 60
+    hsp -= (hdir*(1/timer)); // slow down egg horizontally in right direction
     }
 
 if (vsp &lt; max_vspeed) vsp += grav;
@@ -176,10 +176,10 @@ if (place_meeting(x,y+vsp,obj_collision))
         {
         break_egg = 1;
         }
-    while (!place_meeting(x,y+sign(vsp),obj_collision))
+    /*while (!place_meeting(x,y+sign(vsp),obj_collision))
         {
         y += sign(vsp);
-        }
+        }*/
     vsp = 0;
     }
 
@@ -192,18 +192,23 @@ if (place_meeting(x,y+(sprite_height/2),obj_collision)) &amp;&amp; (break_egg = 
 // Horizontal Collision
 if (place_meeting(x+hsp,y,obj_collision))
     {
-    while (!place_meeting(x+sign(hsp),y,obj_collision))
+    /*while (!place_meeting(x+sign(hsp),y,obj_collision))
         {
         x += sign(hsp);
-        }
+        }*/
     hsp = 0;
     }
 
 // Collision with Chicken
 if (place_meeting(x+hsp,y,obj_chicken) &amp;&amp; sign(hsp) &gt; 3) || ((place_meeting(x,y+vsp,obj_chicken) &amp;&amp; vsp &gt; 2))
     {
-    var hit_chicken = instance_nearest(x,y,obj_chicken);
-    instance_create((hit_chicken).x,(hit_chicken).y,obj_broken_egg);
+    hit_chicken = instance_nearest(x,y,obj_chicken);
+    inst = instance_create((hit_chicken).x,(hit_chicken).y,obj_egg);
+    with (inst)
+        {
+        vsp = -2;
+        hsp = (global.hdir)*2;
+        }
     (hit_chicken).hit = 1;
     instance_destroy();
     }

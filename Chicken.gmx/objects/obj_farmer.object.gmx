@@ -3,7 +3,7 @@
   <spriteName>spr_farmer</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -33,7 +33,62 @@ dir = 1;
 movespeed = 0.75;
 hsp = 0;
 
-moving = 1;
+searching = 0;
+picking = 0;
+
+distance = 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// End Picking Animation
+picking = 0;
+searching = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Make the Egg Disappear
+with (nearest_egg)
+    {
+    instance_destroy();
+    }
 </string>
           </argument>
         </arguments>
@@ -56,25 +111,85 @@ moving = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hsp = dir * movespeed; // basic horizontal movement
-
-// Horizontal Collision
-if (place_meeting(x+hsp,y,obj_collision))
+            <string>// Horizontal Collision
+if (x+hsp &lt;= 5) || (x + hsp &gt;= 635)
     {
-    while (!place_meeting(x+sign(hsp),y,obj_collision))
-        {
-        x += sign(hsp); // slow down for pixel perfect collision
-        }
-    hsp = 0;
-    dir *= -1;  // make enemy change direction
+    dir *= -1;  // make farmer change direction
     }
 
-    
-// MOVEMENT
-if moving == 1
+// Check for Egg
+if searching = 0 &amp;&amp; hit = 0 &amp;&amp; instance_exists(obj_egg)
     {
+    nearest_egg = instance_nearest(x,y+(sprite_height/2),obj_egg);
+    x_egg = (nearest_egg).x;
+    searching = 1;
+    sprite_index = farmer_walk;
+    }
+
+// When at the egg
+if searching == 1 &amp;&amp; picking = 0 &amp;&amp; hit = 0
+    {
+    if !instance_exists((nearest_egg)) // check if egg still exists
+        {
+        searching = 0;
+        }
+    xx = (x-(x_egg));
+    dir = -(sign(xx));
     image_xscale = dir;
-    x += hsp;
+    hsp = dir * movespeed; // basic horizontal movement
+    if ((xx)*(xx)) &lt;= distance // distance to egg squared
+        {
+        sprite_index = spr_farmer_picking;
+        alarm[0] = 60; // moment the egg needs to disappear
+        alarm[1] = 120; // moment the animation is over
+        picking = 1;
+        hsp = 0;
+        }
+    }
+
+x += hsp;
+    
+// Animate
+if hsp != 0 sprite_index = spr_farmer_walking;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>500</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring>draw_self();</codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if instance_exists(nearest_egg)
+    {
+    draw_arrow(x,y,(nearest_egg).x,(nearest_egg).y,2)
     }
 </string>
           </argument>
