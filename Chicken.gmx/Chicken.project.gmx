@@ -6,48 +6,38 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_collision_hill</sprite>
+    <sprite>sprites\spr_platform</sprite>
     <sprite>sprites\spr_collision</sprite>
-    <sprites name="normal">
-      <sprite>sprites\spr_enemy</sprite>
-      <sprite>sprites\spr_grass</sprite>
-      <sprite>sprites\spr_platformV</sprite>
-      <sprite>sprites\spr_wall</sprite>
-      <sprite>sprites\spr_portal</sprite>
-      <sprite>sprites\spr_player_jump</sprite>
-      <sprite>sprites\spr_player_powerup</sprite>
-      <sprite>sprites\spr_platform</sprite>
-      <sprite>sprites\spr_checkpoint</sprite>
-      <sprite>sprites\spr_enemy_exp</sprite>
-      <sprite>sprites\spr_wall_32x32</sprite>
-      <sprite>sprites\spr_wall_ramp</sprite>
-      <sprite>sprites\spr_powerup</sprite>
-      <sprite>sprites\spr_player_fall</sprite>
-    </sprites>
-    <sprite>sprites\spr_chicken_walk</sprite>
-    <sprite>sprites\spr_chicken_run</sprite>
-    <sprite>sprites\spr_chicken_idle_sit</sprite>
-    <sprite>sprites\spr_chicken_idle_pick</sprite>
-    <sprite>sprites\spr_chicken_still</sprite>
-    <sprite>sprites\spr_chicken_still_NPC</sprite>
-    <sprite>sprites\spr_chicken_fly</sprite>
-    <sprite>sprites\spr_chicken_fall</sprite>
-    <sprite>sprites\spr_chicken_idle_blink</sprite>
-    <sprite>sprites\spr_chicken_hit</sprite>
-    <sprite>sprites\spr_chicken_layegg</sprite>
-    <sprite>sprites\spr_chick_walk</sprite>
-    <sprite>sprites\spr_chick_idle</sprite>
-    <sprite>sprites\spr_chick_dance</sprite>
     <sprite>sprites\spr_farmer</sprite>
-    <sprite>sprites\spr_egg</sprite>
-    <sprite>sprites\spr_egg_01</sprite>
-    <sprite>sprites\spr_egg_02</sprite>
-    <sprite>sprites\spr_egg_03</sprite>
-    <sprite>sprites\spr_egg_hatch</sprite>
+    <sprites name="PlayerChicken">
+      <sprite>sprites\spr_chicken_run</sprite>
+      <sprite>sprites\spr_chicken_layegg</sprite>
+      <sprite>sprites\spr_chicken_still</sprite>
+      <sprite>sprites\spr_chicken_fly</sprite>
+      <sprite>sprites\spr_chicken_fall</sprite>
+    </sprites>
+    <sprites name="Chicken">
+      <sprite>sprites\spr_chicken_hit</sprite>
+      <sprite>sprites\spr_chicken_walk</sprite>
+      <sprite>sprites\spr_chicken_idle_pick</sprite>
+      <sprite>sprites\spr_chicken_still_NPC</sprite>
+      <sprite>sprites\spr_chicken_idle_sit</sprite>
+      <sprite>sprites\spr_chicken_idle_blink</sprite>
+    </sprites>
+    <sprites name="Chick">
+      <sprite>sprites\spr_chick_dance</sprite>
+      <sprite>sprites\spr_chick_idle</sprite>
+      <sprite>sprites\spr_chick_walk</sprite>
+    </sprites>
+    <sprites name="Egg">
+      <sprite>sprites\spr_egg</sprite>
+      <sprite>sprites\spr_egg_01</sprite>
+      <sprite>sprites\spr_egg_02</sprite>
+      <sprite>sprites\spr_egg_03</sprite>
+      <sprite>sprites\spr_egg_hatch</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
-    <background>background\background1</background>
     <background>background\bck_granja</background>
   </backgrounds>
   <paths name="paths"/>
@@ -55,13 +45,8 @@
     <object>objects\obj_egg</object>
     <object>objects\obj_collision</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_grass</object>
-    <object>objects\obj_enemy_nofall</object>
     <object>objects\obj_chicken</object>
-    <object>objects\obj_portal</object>
-    <object>objects\obj_checkpoint</object>
     <object>objects\obj_platform</object>
-    <object>objects\obj_platformH</object>
     <object>objects\obj_broken_egg</object>
     <object>objects\obj_farmer</object>
     <object>objects\obj_chick</object>
