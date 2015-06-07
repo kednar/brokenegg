@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_platform</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>obj_collision</parentName>
@@ -56,7 +56,6 @@ else
     {
     mask_index = spr_platform;
     }
-
 </string>
           </argument>
         </arguments>
@@ -79,8 +78,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_platform,0,x,y);
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

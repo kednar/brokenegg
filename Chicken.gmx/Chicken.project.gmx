@@ -51,10 +51,15 @@
     <object>objects\obj_collision</object>
     <object>objects\obj_player</object>
     <object>objects\obj_chicken</object>
-    <object>objects\obj_platform</object>
     <object>objects\obj_broken_egg</object>
     <object>objects\obj_farmer</object>
     <object>objects\obj_chick</object>
+    <objects name="platforms">
+      <object>objects\obj_haus</object>
+      <object>objects\obj_platform</object>
+      <object>objects\obj_hay</object>
+      <object>objects\obj_box</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>
