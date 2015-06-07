@@ -34,22 +34,23 @@ grav = 0.1;
 movespeed = 1.5;
 key_down = 0;
 
-flying = 0;
-flyspeed = 0.22;
-flyspeed_max = 1.8;
-jumpspeed = 1.4;
+egg_counter = 0;
+egg_delay = 60;
+
+jumpspeed = 1.6;
 jumps = 12;
-jumpsmax = 12; 
+jumpsmax = 10; 
 
 global.hdir = 1; // for egg propulsion direction
 
+/*flying = 0;
+flyspeed = 0.22;
+flyspeed_max = 1.8;
 stamina = 100;
 stamina_max = 50;
 stamina_loss = 1; // amount lost per frame when flying
 stamina_recovery = 3; // amount gained per frame when on ground
-
-egg_counter = 0;
-egg_delay = 60;
+*/
 </string>
           </argument>
         </arguments>
@@ -85,10 +86,20 @@ key_layegg = keyboard_check_pressed(vk_space);
 // Basic Movement
 move = key_left + key_right;
 hsp = move * movespeed;
-if (vsp &lt; 3) vsp += grav;
-    
-// Horizontal Movement
 hsp_final = hsp;
+if (vsp &lt; 3) vsp += grav;
+
+// Jumping
+if (place_meeting(x,y+1,obj_collision)) 
+    {
+    jumps = jumpsmax;
+    }
+
+if (key_jump) &amp;&amp; (jumps &gt; 0)
+    {
+    vsp = -jumpspeed;
+    jumps -= 1;
+    }
 
 /*
 // Flying
@@ -138,18 +149,6 @@ if (place_meeting(x,y+vsp,obj_collision))
     vsp = 0;
     }
 y += vsp;
-
-// Jumping
-if (place_meeting(x,y+1,obj_collision)) 
-    {
-    jumps = jumpsmax;
-    }
-
-if (key_jump) &amp;&amp; (jumps &gt; 0)
-    {
-    vsp = -jumpspeed;
-    jumps -= 1;
-    }
 
 // Animate
 if (move != 0)
