@@ -36,9 +36,13 @@ hsp = 3.5*(hdir);
 grav = 0.15;
 
 break_egg = 0;
-breaking_point = 4; // velocity at which egg breaks on impact
+breaking_point = 3.5; // velocity at which egg breaks on impact
 
 hatching = 0;
+crack_timer_1 = 240;
+crack_timer_2 = 360;
+crack_timer_3 = 420;
+hatching_timer = 600;
 </string>
           </argument>
         </arguments>
@@ -217,10 +221,10 @@ if (hdir = -1 &amp;&amp; hsp &gt; 0) || (hdir = 1 &amp;&amp; hsp &lt; 0)
     
 if hsp = 0 &amp;&amp; hatching = 0
     {
-    alarm[0] = 240;
-    alarm[1] = 360;
-    alarm[2] = 420;
-    alarm[3] = 600;
+    alarm[0] = crack_timer_1;
+    alarm[1] = crack_timer_2;
+    alarm[2] = crack_timer_3;
+    alarm[3] = hatching_timer;
     hatching = 1;
     }
 </string>
