@@ -51,7 +51,6 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_player" x="172" y="142" name="inst_5E7AD81F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision" x="1" y="88" name="inst_55B36B8E" locked="0" code="" scaleX="0.5" scaleY="44" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision" x="226" y="176" name="inst_17248D05" locked="0" code="" scaleX="112" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision" x="638" y="88" name="inst_F353E9FC" locked="0" code="" scaleX="1" scaleY="43" colour="4294967295" rotation="0"/>
@@ -62,6 +61,12 @@
     <instance objName="obj_chicken" x="52" y="160" name="inst_74E92607" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chicken" x="536" y="146" name="inst_B0DA3C92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chicken" x="470" y="142" name="inst_681ED08C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="122" y="50" name="inst_5BEE2147" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="98" y="136" name="inst_F69E8DA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="234" y="154" name="inst_F0BDFD38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="346" y="126" name="inst_C5DA9FD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="424" y="130" name="inst_EEF1BD95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chicken" x="564" y="132" name="inst_076A2A29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

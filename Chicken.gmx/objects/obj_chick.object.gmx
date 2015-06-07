@@ -27,19 +27,19 @@
             <kind>1</kind>
             <string>mother = instance_nearest(x,y,obj_chicken)
 
-xx = x-(mother).x;
+xx = 0;
 dir = 1;
 grav = 0.1;
 hsp = 0;
 vsp = -1;
 fearofheights = 0;
-wait = 1;
-alarm[0] = 30;
 
 moving = 0;
 movespeed = 1.2;
+waiting = 1;
+alarm[0] = 30;
 
-distance = 20; // pixels of distance to mother required before starting to move
+distance = 50; // pixels of distance to mother required before starting to move
 </string>
           </argument>
         </arguments>
@@ -62,9 +62,8 @@ distance = 20; // pixels of distance to mother required before starting to move
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xx = x-(mother).x
-if (xx &gt; 0) dir = (-1); else dir = 1;
-wait = 0;
+            <string>sprite_index = spr_chick_idle;
+waiting = 0;
 </string>
           </argument>
         </arguments>
@@ -108,149 +107,41 @@ if (place_meeting(x,y+vsp,obj_collision))
         y += sign(vsp);
         }
     vsp = 0;
-    if (fearofheights) &amp;&amp; !position_meeting(x+(sprite_width/2)*dir, y+(sprite_height/2)+8, obj_wall_32x32)
+/*    if (fearofheights) &amp;&amp; !position_meeting(x+(sprite_width/2)*dir, y+(sprite_height/2)+8, obj_wall_32x32)
         {
         dir *= -1; // don't fall of ledges if fearofheights = 1
-        }    
+        }    */
     }
 
 // MOVEMENT
-if (wait = 0) &amp;&amp; (xx &lt;= (distance*dir) || xx &gt;= -(distance*dir))
+if moving = 0 &amp;&amp; waiting = 0
     {
-    moving = 1;
+    xx = (x-(mother).x);
+    dir = -(sign(xx));
+    if xx &lt;= -(distance*dir) || xx &gt;= (distance*dir)
+        {
+        moving = 1;
+        sprite_index = spr_chick_walk;
+        image_xscale = dir;
+        }
     }
-
-hsp = dir * movespeed; // basic horizontal movement
+    
 y += vsp;
 
 if moving == 1
     {
-    sprite_index = spr_chick_walk;
-    image_xscale = dir;
+    hsp = dir * movespeed; // basic horizontal movement
     x += hsp;
-    if ((xx)*(xx)) &lt;= 4
+    xx = (x-(mother).x);
+    if ((xx)*(xx)) &lt;= 16 // distance to mother &lt;= 4
         {
         moving = 0;
-        sprite_index = spr_chick_idle;
-        alarm[0] = 20;
-        wait = 1;
+        sprite_index = spr_chick_dance;
+        alarm[0] = 60;
+        waiting = 1;
         }
     }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>xx</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>moving</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y+20</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>dir</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y+40</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>sign(xx)</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y+60</string>
           </argument>
         </arguments>
       </action>
