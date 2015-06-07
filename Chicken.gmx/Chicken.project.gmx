@@ -36,6 +36,11 @@
       <sprite>sprites\spr_egg_03</sprite>
       <sprite>sprites\spr_egg_hatch</sprite>
     </sprites>
+    <sprites name="Platforms">
+      <sprite>sprites\spr_box</sprite>
+      <sprite>sprites\spr_hay</sprite>
+      <sprite>sprites\spr_hause</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
