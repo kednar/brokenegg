@@ -36,6 +36,7 @@ key_down = 0;
 
 egg_counter = 0;
 egg_delay = 60;
+layegg_animation = 0;
 
 jumpspeed = 1.6;
 jumps = 12;
@@ -51,6 +52,29 @@ stamina_max = 50;
 stamina_loss = 1; // amount lost per frame when flying
 stamina_recovery = 3; // amount gained per frame when on ground
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>layegg_animation = 0;
 </string>
           </argument>
         </arguments>
@@ -129,10 +153,10 @@ flying = 0;
 // Horizontal Collision
 if (place_meeting(x+hsp_final,y,obj_collision))
     {
-    while (!place_meeting(x+sign(hsp_final),y,obj_collision))
+    /*while (!place_meeting(x+sign(hsp_final),y,obj_collision))
         {
         x += sign(hsp_final);
-        }
+        }*/
     hsp_final = 0;
     hsp = 0;
     }
@@ -140,18 +164,20 @@ if (place_meeting(x+hsp_final,y,obj_collision))
 x += hsp_final;
 
 // Vertical Collision
-if (place_meeting(x,y+vsp,obj_collision))
+if (place_meeting(x,y+vsp,obj_collision)) &amp;&amp; !key_jump
     {
-    while (!place_meeting(x,y+sign(vsp),obj_collision))
+    /*while (!place_meeting(x,y+sign(vsp),obj_collision))
         {
         y += sign(vsp);
-        }
+        }*/
     vsp = 0;
     }
 y += vsp;
 
 // Animate
-if (move != 0)
+if layegg_animation = 0
+{
+    if (move != 0)
     {
     image_xscale = move;
     }
@@ -167,6 +193,7 @@ else
         }
     else sprite_index = spr_chicken_fall;
     }
+}
     
 /// Lay Eggs
 if (key_layegg) &amp;&amp; (egg_counter &gt;= egg_delay)
@@ -174,6 +201,10 @@ if (key_layegg) &amp;&amp; (egg_counter &gt;= egg_delay)
     instance_create(x-((global.hdir)*8),y-5,obj_egg);
     egg_delay = 120;
     egg_counter = 0;
+    sprite_index = spr_chicken_layegg;
+    image_xscale = global.hdir;
+    alarm[0] = 20;
+    layegg_animation = 1;
     }
 egg_counter += 1;
 </string>
@@ -223,64 +254,6 @@ egg_counter += 1;
             <kind>1</kind>
             <string>global.hdir = -1;
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>stamina</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>y</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y+20</string>
           </argument>
         </arguments>
       </action>
