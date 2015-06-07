@@ -41,6 +41,8 @@
       <sprite>sprites\spr_hay</sprite>
       <sprite>sprites\spr_hause</sprite>
     </sprites>
+    <sprite>sprites\spr_farmer_idle</sprite>
+    <sprite>sprites\spr_farmer_walk</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
