@@ -34,6 +34,7 @@
     <sprite>sprites\spr_chicken_fall</sprite>
     <sprite>sprites\spr_chicken_idle_blink</sprite>
     <sprite>sprites\spr_chicken_hit</sprite>
+    <sprite>sprites\spr_chicken_layegg</sprite>
     <sprite>sprites\spr_chick_walk</sprite>
     <sprite>sprites\spr_chick_idle</sprite>
     <sprite>sprites\spr_chick_dance</sprite>
