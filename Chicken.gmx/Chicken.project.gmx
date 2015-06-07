@@ -42,6 +42,8 @@
     </sprites>
     <sprite>sprites\spr_farmer_idle</sprite>
     <sprite>sprites\spr_farmer_walk</sprite>
+    <sprite>sprites\spr_farmer_pick</sprite>
+    <sprite>sprites\spr_farmer_hit</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
