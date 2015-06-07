@@ -212,7 +212,18 @@ if (place_meeting(x+hsp,y,obj_chicken) &amp;&amp; sign(hsp) &gt; 3) || ((place_m
     (hit_chicken).hit = 1;
     instance_destroy();
     }
-    
+
+// Collision with farmer
+if (place_meeting(x,y,obj_farmer))
+    {
+    if (sign(hsp) &gt; 3) || (vsp &gt; 2)
+        {
+        instance_create((other).x,(other).y,obj_broken_egg);
+        (other).hit = 1;
+        instance_destroy();
+        }
+    }    
+        
 // Rotation
 image_angle += (hsp * 5);
 

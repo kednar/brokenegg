@@ -8,7 +8,6 @@
   <sprites name="sprites">
     <sprite>sprites\spr_platform</sprite>
     <sprite>sprites\spr_collision</sprite>
-    <sprite>sprites\spr_farmer</sprite>
     <sprites name="PlayerChicken">
       <sprite>sprites\spr_chicken_run</sprite>
       <sprite>sprites\spr_chicken_layegg</sprite>
@@ -48,6 +47,9 @@
     <background>background\bck_granja</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\font_size_4</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_egg</object>
     <object>objects\obj_collision</object>

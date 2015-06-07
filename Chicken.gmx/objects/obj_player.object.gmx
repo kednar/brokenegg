@@ -166,13 +166,13 @@ if (key_fly) &amp;&amp; (stamina &gt; 5)
     stamina -= stamina_loss;
     }
 
-if ((place_meeting(x,y+1,obj_collision)) &amp;&amp; (stamina &lt; stamina_max))
+if (place_meeting(x,y+1,obj_collision)) &amp;&amp; (stamina &lt; stamina_max)
     {
     stamina += stamina_recovery;
     }
 
 // Horizontal Collision
-if (place_meeting(x+hsp_final,y,obj_collision))
+if ((x+hsp_final) &lt; 10) || ((x+hsp_final) &gt; room_width-10)
     {
     /*while (!place_meeting(x+sign(hsp_final),y,obj_collision))
         {
@@ -185,7 +185,7 @@ if (place_meeting(x+hsp_final,y,obj_collision))
 x += hsp_final;
 
 // Vertical Collision
-if (place_meeting(x,y+vsp,obj_collision)) &amp;&amp; !key_fly
+if (place_meeting(x,y+vsp,obj_collision)) &amp;&amp; flying = 0
     {
     /*while (!place_meeting(x,y+sign(vsp),obj_collision))
         {
