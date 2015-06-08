@@ -37,7 +37,10 @@ searching = 0;
 picking = 0;
 hit = 0;
 
-distance = 30;
+distance = 1;
+
+picking_time = 40; // frames until egg disappears
+picking_time_total = 140; // total frames for picking animation
 
 nearest_egg = (obj_player);
 xx = 0;
@@ -164,9 +167,9 @@ if searching == 1 &amp;&amp; picking = 0
         dir = -(sign(xx));
         if ((xx)*(xx)) &lt;= distance &amp;&amp; (nearest_egg).hatching = 1 // distance to egg squared
             {
-            sprite_index = spr_farmer_idle_small;
-            alarm[0] = 60; // moment the egg needs to disappear
-            alarm[1] = 120; // moment the animation is over
+            sprite_index = spr_farmer_pick;
+            alarm[0] = picking_time; // moment the egg needs to disappear
+            alarm[1] = picking_time_total; // moment the animation is over
             picking = 1;
             hsp = 0;
             }
