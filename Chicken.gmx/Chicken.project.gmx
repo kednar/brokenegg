@@ -39,12 +39,15 @@
       <sprite>sprites\spr_box</sprite>
       <sprite>sprites\spr_hay</sprite>
       <sprite>sprites\spr_hause</sprite>
+      <sprite>sprites\spr_barrel</sprite>
     </sprites>
     <sprites name="Farmer">
       <sprite>sprites\spr_farmer_idle</sprite>
       <sprite>sprites\spr_farmer_walk</sprite>
       <sprite>sprites\spr_farmer_pick</sprite>
       <sprite>sprites\spr_farmer_hit</sprite>
+      <sprite>sprites\spr_farmer_walk_small</sprite>
+      <sprite>sprites\spr_farmer_idle_small</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -67,6 +70,7 @@
       <object>objects\obj_platform</object>
       <object>objects\obj_hay</object>
       <object>objects\obj_box</object>
+      <object>objects\obj_barrel</object>
     </objects>
   </objects>
   <rooms name="rooms">
