@@ -36,14 +36,16 @@ hsp = 0;
 searching = 0;
 picking = 0;
 hit = 0;
-vulnerable = 1;
+just_hit = 0;
+vulnerable = 0;
+
+hearts = 3;
 
 distance = 1;
 
 picking_time = 40; // frames until egg disappears
-picking_time_total = 140; // total frames for picking animation
-
-hit_time = 10;
+picking_time_total = 130; // total frames for picking animation
+hit_time = 10; // moment from which on the farmer is vulnerable
 
 nearest_egg = (obj_player);
 xx = 0;
@@ -52,7 +54,7 @@ xx = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="4">
+    <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -121,7 +123,11 @@ vulnerable = 1;
           <argument>
             <kind>1</kind>
             <string>/// End Picking Animation
-if hit == 0
+if just_hit == 1    // if he has just been hit, 
+    {              // variables were already changed by other alarm,
+    just_hit = 0;   // so don't do anything
+    }
+else
     {
     picking = 0;
     searching = 0;
@@ -224,14 +230,6 @@ if picking = 0
     x += hsp;
     }
 
-// Hit by egg - EGG ATACK!
-if vulnerable == 1 &amp;&amp; hit == 1
-    {
-    sprite_index = spr_farmer_hit;
-    alarm[4] = 45;
-    hearts -= 1;
-    }
-    
 // Animate
 if hit == 0 &amp;&amp; picking == 0
     {
@@ -274,7 +272,7 @@ image_xscale = -dir;
         <arguments>
           <argument>
             <kind>12</kind>
-            <font>font_size_4</font>
+            <font>font_size_12</font>
           </argument>
           <argument>
             <kind>4</kind>
@@ -298,12 +296,23 @@ image_xscale = -dir;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if instance_exists(nearest_egg)
+            <string>
+draw_text(x,y-100,"hearts:"+string(hearts));
+draw_text(x,y-60,"vul:"+string(vulnerable));
+draw_text(x,y-80,"hit:"+string(hit));
+    
+/*if instance_exists(nearest_egg)
     {
     draw_arrow(x,y,(nearest_egg).x,(nearest_egg).y,2);
     }
-draw_text(x,y-60,"hsp:"+string(hsp));
+
 draw_text(x,y-40,"xx:"+string(xx));
+
+var i;
+for (i = 0; i = hearts; i += 1)
+    {
+    draw_circle((x - 10 + (i*10)), y - 50,5,0);
+    }
 </string>
           </argument>
         </arguments>

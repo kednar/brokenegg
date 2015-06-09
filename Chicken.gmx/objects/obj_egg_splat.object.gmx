@@ -3,7 +3,7 @@
   <spriteName>spr_splat_nostay</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-200</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// set alarm 0
-alarm[0] = 30;
+alarm[0] = 20;
 </string>
           </argument>
         </arguments>

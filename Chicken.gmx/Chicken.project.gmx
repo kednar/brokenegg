@@ -56,7 +56,7 @@
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">
-    <font>fonts\font_size_4</font>
+    <font>fonts\font_size_12</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_egg_splat_head</object>
