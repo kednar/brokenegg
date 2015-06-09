@@ -45,8 +45,6 @@
       <sprite>sprites\spr_barrel</sprite>
     </sprites>
     <sprites name="Farmer">
-      <sprite>sprites\spr_farmer_idle</sprite>
-      <sprite>sprites\spr_farmer_walk</sprite>
       <sprite>sprites\spr_farmer_pick</sprite>
       <sprite>sprites\spr_farmer_hit</sprite>
       <sprite>sprites\spr_farmer_walk_small</sprite>
@@ -61,6 +59,8 @@
     <font>fonts\font_size_4</font>
   </fonts>
   <objects name="objects">
+    <object>objects\obj_egg_splat_head</object>
+    <object>objects\obj_egg_splat</object>
     <object>objects\obj_egg</object>
     <object>objects\obj_collision</object>
     <object>objects\obj_player</object>
