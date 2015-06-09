@@ -34,6 +34,9 @@
       <sprite>sprites\spr_egg_02</sprite>
       <sprite>sprites\spr_egg_03</sprite>
       <sprite>sprites\spr_egg_hatch</sprite>
+      <sprite>sprites\spr_splat_stays</sprite>
+      <sprite>sprites\spr_splat_nostay</sprite>
+      <sprite>sprites\spr_splat_head</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_box</sprite>
