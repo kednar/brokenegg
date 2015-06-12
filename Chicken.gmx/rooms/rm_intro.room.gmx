@@ -76,7 +76,6 @@
     <instance objName="obj_hay" x="577" y="146" name="inst_25DADA33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform" x="577" y="138" name="inst_3202DBB0" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box" x="436" y="161" name="inst_82245400" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="40" y="70" name="inst_BDE2769B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box" x="419" y="143" name="inst_86CEA9ED" locked="0" code="" scaleX="1.11000001430511" scaleY="1.05263161659241" colour="4294967295" rotation="0"/>
     <instance objName="obj_box" x="437" y="143" name="inst_E1A67772" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_box" x="418" y="126" name="inst_C1FC710E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -105,7 +104,8 @@
     <instance objName="obj_hay" x="18" y="165" name="inst_083214CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chicken_intro" x="582" y="129" name="inst_194E34D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform" x="427" y="47" name="inst_08F08C53" locked="0" code="" scaleX="8.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="118" y="105" name="inst_39E43957" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player_intro" x="109" y="104" name="inst_E4DB7147" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_intro_listener" x="20" y="12" name="inst_A68E4E22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
