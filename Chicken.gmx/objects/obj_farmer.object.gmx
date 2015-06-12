@@ -454,7 +454,7 @@ if dead == 0
         <arguments>
           <argument>
             <kind>12</kind>
-            <font>Munro_Narrow_6</font>
+            <font>bellota</font>
           </argument>
           <argument>
             <kind>4</kind>
@@ -497,6 +497,46 @@ for (i = 0; i = hearts; i += 1)
     draw_circle((x - 10 + (i*10)), y - 50,5,0);
     }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>519</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text_transformed</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>Hello</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>.25</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>.25</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
