@@ -78,8 +78,8 @@ object_set_depth((inst),-200);
 with (inst)
     {
     sprite_index = spr_platform;
-    image_xscale = 4;
-    image_yscale = 2;
+    image_xscale = 3;
+    image_yscale = 1;
     }
 </string>
           </argument>
@@ -282,7 +282,8 @@ if hit == 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hsp = dir * movespeed; // basic horizontal movement
+            <string>/// MAIN LOOP
+hsp = dir * movespeed; // basic horizontal movement
 
 // Horizontal Collision
 if (x+hsp &lt;= 5) || (x + hsp &gt;= 635)
@@ -305,7 +306,7 @@ if searching == 1 &amp;&amp; picking = 0 &amp;&amp; hit = 0
         x_egg = (nearest_egg).x;
         xx = (x-(x_egg));
         dir = -(sign(xx));
-        if ((xx)*(xx)) &lt;= distance &amp;&amp; (nearest_egg).hatching = 1 // distance to egg squared
+        if ((xx)*(xx)) &lt;= distance &amp;&amp; (nearest_egg).hatching == 1 // distance to egg squared
             {
             sprite_index = spr_farmer_pick;
             alarm[0] = picking_time; // moment the egg needs to disappear
@@ -480,10 +481,10 @@ if dead == 0
             <kind>1</kind>
             <string>
 draw_text(x,y-100,"hearts:"+string(hearts));
-draw_text(x,y-60,"vul:"+string(vulnerable));
-draw_text(x,y-80,"hit:"+string(hit));
-draw_set_colour(c_white);
-draw_circle(x, y, 50, true);
+//draw_text(x,y-60,"vul:"+string(vulnerable));
+//draw_text(x,y-80,"hit:"+string(hit));
+//draw_set_colour(c_white);
+//draw_circle(x, y, 50, true);
 /*if instance_exists(nearest_egg)
     {
     draw_arrow(x,y,(nearest_egg).x,(nearest_egg).y,2);

@@ -56,6 +56,7 @@
     <sprites name="Intro">
       <sprite>sprites\sprite34</sprite>
     </sprites>
+    <sprite>sprites\spr_splot</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
@@ -70,8 +71,10 @@
     <object>objects\obj_egg_splat</object>
     <object>objects\obj_egg_splat_stay</object>
     <object>objects\obj_egg</object>
+    <object>objects\obj_splot</object>
     <object>objects\obj_collision</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_player_intro</object>
     <object>objects\obj_chicken</object>
     <object>objects\obj_chicken_intro</object>
     <object>objects\obj_broken_egg</object>
@@ -84,7 +87,7 @@
       <object>objects\obj_box</object>
       <object>objects\obj_barrel</object>
     </objects>
-    <object>objects\obj_intro</object>
+    <object>objects\obj_intro_listener</object>
     <object>objects\obj_main_listener</object>
   </objects>
   <rooms name="rooms">
