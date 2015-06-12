@@ -27,6 +27,7 @@
       <sprite>sprites\spr_chick_dance</sprite>
       <sprite>sprites\spr_chick_idle</sprite>
       <sprite>sprites\spr_chick_walk</sprite>
+      <sprite>sprites\spr_chick_fly</sprite>
     </sprites>
     <sprites name="Egg">
       <sprite>sprites\spr_egg</sprite>
