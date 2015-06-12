@@ -85,6 +85,7 @@
       <object>objects\obj_barrel</object>
     </objects>
     <object>objects\obj_intro</object>
+    <object>objects\obj_main_listener</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>

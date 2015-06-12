@@ -54,6 +54,8 @@ stamina_max = 50;
 stamina_loss = 1; // amount lost per frame when flying
 stamina_recovery = 3; // amount gained per frame when on ground
 
+x_spawn = x;
+y_spawn = y;
 </string>
           </argument>
         </arguments>
@@ -158,6 +160,7 @@ if (key_jump) &amp;&amp; (jumps &gt; 0)// &amp;&amp; just_jumped = 0
         }
     }
 */    
+
 // Flying
 if (key_fly) &amp;&amp; (stamina &gt; 5)
     {
@@ -303,6 +306,31 @@ depth = -y;
           <argument>
             <kind>1</kind>
             <string>global.hdir = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Respawn Player inside of room
+x = x_spawn;
+y = y_spawn;
 </string>
           </argument>
         </arguments>
