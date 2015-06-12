@@ -54,6 +54,38 @@ xx = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Add platform on farmer when dead
+inst = instance_create(x,y+10,obj_platform);
+object_set_visible((inst), true); // use for bugchecking
+object_set_depth((inst),-200);
+with (inst)
+    {
+    sprite_index = spr_platform;
+    image_xscale = 4;
+    image_yscale = 2;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -368,7 +400,8 @@ image_xscale = -dir;
 if dead == 0
     {
     sprite_index = spr_farmer_faint;
-    alarm[4] = 142;
+    alarm[4] = 142; //  End animation, spawn last frame
+    alarm[5] = 70; // Create platform on farmer
     dead = 1;
     }
 </string>
@@ -449,7 +482,8 @@ if dead == 0
 draw_text(x,y-100,"hearts:"+string(hearts));
 draw_text(x,y-60,"vul:"+string(vulnerable));
 draw_text(x,y-80,"hit:"+string(hit));
-    
+draw_set_colour(c_white);
+draw_circle(x, y, 50, true);
 /*if instance_exists(nearest_egg)
     {
     draw_arrow(x,y,(nearest_egg).x,(nearest_egg).y,2);
