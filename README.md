@@ -1,7 +1,8 @@
 # BROKEN EGG
-1. You are a chicken
-1. You can jump
-1. You can fly a little bit.
-1. You can lay eggs down,
-even when you're flying.
-1. Gravity applies.
+A little game by Milan Pingel and Pablo López Soriano
+
+"The chicken dashed RIGHT like an ARROW,
+it wanted to soar like an eagle.
+It knew flying UPwards was KEY,
+but it never lasted.
+The chicken needed more SPACE."
