@@ -32,13 +32,15 @@ timer = 40;
 
 //vsp = -2;
 max_vspeed = 3;
-//hsp = 3.5*(hdir);
+hsp = 3*(hdir);
 grav = 0.15;
 
 break_egg = 0;
-breaking_point = 3; // velocity at which egg breaks on impact
+breaking_point = 3.2; // velocity at which egg breaks on impact
 
 hatching = 0;
+hatch_counter = 0;
+hatch_delay = 30;
 crack_timer_1 = 240;
 crack_timer_2 = 360;
 crack_timer_3 = 420;
@@ -169,6 +171,7 @@ vsp = -1;
             <string>if hsp != 0
     {
     hsp -= (hdir*(1/timer)); // slow down egg horizontally in right direction
+    hatchcounter = 0;
     }
 
 if (vsp &lt; max_vspeed) vsp += grav;
@@ -199,39 +202,31 @@ if (place_meeting(x+hsp,y,obj_collision))
     }
 
 // Collision with Chicken
-if (place_meeting(x,y,obj_chicken) &amp;&amp; sign(hsp) &gt; 2) || ((place_meeting(x,y,obj_chicken) &amp;&amp; vsp &gt; 2))
+if ((place_meeting(x,y,obj_chicken) &amp;&amp; sign(hsp) &gt; 2) || (place_meeting(x,y,obj_chicken) &amp;&amp; vsp &gt; 2))
     {
     hit_chicken = instance_nearest(x,y,obj_chicken);
     inst = instance_create((hit_chicken).x,(hit_chicken).y,obj_egg);
     with (inst)
         {
         vsp = -2;
-        hsp = (global.hdir)*2;
+        hsp = hdir*2;
         }
     (hit_chicken).hit = 1;
     instance_destroy();
     }
 
 // Collision with farmer
-if (place_meeting(x,y,obj_farmer))
+if (place_meeting(x,y,obj_farmer)) &amp;&amp; ((obj_farmer).vulnerable == 1)
     {
     if (sign(hsp) &gt; 2) || (vsp &gt; 2)
         {
-        if ((obj_farmer).vulnerable == 0)
-            {
-            //instance_create((other).x,(other).y,obj_egg_splat);
-            instance_create(x,y,obj_egg_splat);
-            }
-        else
-            {
-            //instance_create((other).x,(other).y,obj_egg_splat_head);
-            instance_create(x,y,obj_egg_splat_head)
-            (obj_farmer).hit = 1;
-            (obj_farmer).sprite_index = spr_farmer_hit;
-            (obj_farmer).alarm[3] = 45;
-            (obj_farmer).hearts -= 1;
-            (obj_farmer).just_hit = 1;
-            }
+        //instance_create((other).x,(other).y,obj_egg_splat_head);
+        instance_create(x,y,obj_egg_splat_head)
+        (obj_farmer).hit = 1;
+        (obj_farmer).sprite_index = spr_farmer_hit;
+        (obj_farmer).alarm[3] = 45;
+        (obj_farmer).hearts -= 1;
+        (obj_farmer).just_hit = 1;
         instance_destroy();
         }
     }    
@@ -242,18 +237,22 @@ image_angle += (hsp * 5);
 x += hsp;
 y += vsp;
 
-if (hdir = -1 &amp;&amp; hsp &gt; 0) || (hdir = 1 &amp;&amp; hsp &lt; 0)
+if (hdir == -1 &amp;&amp; hsp &gt; 0) || (hdir == 1 &amp;&amp; hsp &lt; 0)
     {
     hsp = 0;
     }
     
-if hsp = 0 &amp;&amp; hatching = 0
+if hsp == 0 &amp;&amp; hatching == 0
     {
-    alarm[0] = crack_timer_1;
-    alarm[1] = crack_timer_2;
-    alarm[2] = crack_timer_3;
-    alarm[3] = hatching_timer;
-    hatching = 1;
+    hatch_counter += 1;
+    if hatch_counter == hatch_delay
+        {
+        hatching = 1;
+        alarm[0] = crack_timer_1;
+        alarm[1] = crack_timer_2;
+        alarm[2] = crack_timer_3;
+        alarm[3] = hatching_timer;
+        }
     }
 </string>
           </argument>
