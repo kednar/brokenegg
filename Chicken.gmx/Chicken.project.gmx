@@ -38,6 +38,11 @@
       <sprite>sprites\spr_splat_stays</sprite>
       <sprite>sprites\spr_splat_nostay</sprite>
       <sprite>sprites\spr_splat_head</sprite>
+      <sprite>sprites\spr_egg_title_01</sprite>
+      <sprite>sprites\spr_egg_title_02</sprite>
+      <sprite>sprites\spr_egg_title_03</sprite>
+      <sprite>sprites\spr_egg_title_04</sprite>
+      <sprite>sprites\spr_egg_hatch_title</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_box</sprite>
@@ -67,6 +72,10 @@
   <fonts name="fonts">
     <font>fonts\font_size_12</font>
     <font>fonts\font_arial_4_off</font>
+    <font>fonts\Munro_6</font>
+    <font>fonts\Munro_Narrow_6</font>
+    <font>fonts\Munro_Small_5</font>
+    <font>fonts\Munro_Small_6</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_egg_splat_head</object>
