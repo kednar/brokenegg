@@ -7,4 +7,4 @@ It knew flying UPwards was KEY,
 but it never lasted.
 The chicken needed more SPACE."
 
-Typography by B. Holcombe (@takorii)
+Text font "Effort" by B. Holcombe (@takorii)
