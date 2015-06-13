@@ -119,15 +119,15 @@ fade_out = 0;
           <argument>
             <kind>1</kind>
             <string>/// Fade Out / Change Room
-if counter_1 &lt; counter_1_max
+if counter &lt; counter_max
     {
-    counter_1 += 1;
+    counter += 1;
     }
-if counter_1 == counter_1_max
+if counter == counter_max
     {
     fade_out = 1;
     alarm[0] = 80;
-    counter_1 += 1;
+    counter += 1;
     }
 </string>
           </argument>
