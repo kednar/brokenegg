@@ -38,11 +38,11 @@
       <sprite>sprites\spr_splat_stays</sprite>
       <sprite>sprites\spr_splat_nostay</sprite>
       <sprite>sprites\spr_splat_head</sprite>
+      <sprite>sprites\spr_egg_title</sprite>
       <sprite>sprites\spr_egg_title_01</sprite>
       <sprite>sprites\spr_egg_title_02</sprite>
       <sprite>sprites\spr_egg_title_03</sprite>
-      <sprite>sprites\spr_egg_title_04</sprite>
-      <sprite>sprites\spr_egg_hatch_title</sprite>
+      <sprite>sprites\spr_egg_title_hatch</sprite>
     </sprites>
     <sprites name="Platforms">
       <sprite>sprites\spr_box</sprite>
@@ -65,6 +65,7 @@
     <sprite>sprites\spr_titlescreen</sprite>
     <sprite>sprites\spr_fade_in</sprite>
     <sprite>sprites\spr_fade_out</sprite>
+    <sprite>sprites\spr_frame_titlescreen</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
