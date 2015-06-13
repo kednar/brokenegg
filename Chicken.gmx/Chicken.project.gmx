@@ -66,6 +66,7 @@
     <sprite>sprites\spr_fade_in</sprite>
     <sprite>sprites\spr_fade_out</sprite>
     <sprite>sprites\spr_frame_titlescreen</sprite>
+    <sprite>sprites\spr_effort</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
