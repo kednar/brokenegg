@@ -48,13 +48,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (round(obj_player.y + (obj_player.sprite_height/2)) &gt; (y+1)) || (obj_player.key_down)
+            <string>if instance_exists(obj_player)
     {
-    mask_index = -1;
-    }
-else
-    {
-    mask_index = spr_platform;
+    if (round(obj_player.y + (obj_player.sprite_height/2)) &gt; (y+1)) || (obj_player.key_down)
+        {
+        mask_index = -1;
+        }
+    else
+        {
+        mask_index = spr_platform;
+        }
     }
 </string>
           </argument>

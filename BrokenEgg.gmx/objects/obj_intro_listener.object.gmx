@@ -30,7 +30,45 @@ player = (obj_player_intro);
 xx = (player).x;
 yy = (player).y;
 passed_400 = 0;
+size = 0.5;
 alarm[0] = 240; // enable flying
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Define Text Strings
+intro_text[0] = "0";
+intro_text[1] = "no SPACE";
+intro_text[2] = "need more SPACE"
+intro_text[3] = "to dash RIGH like an ARROW";
+intro_text[4] = "flying UPwards is KEY";
+intro_text[5] = "to soar like an eagle";
+intro_text[6] = "but i am too weak";
+intro_text[7] = "soon";
+intro_text[8] = "i will be strong enough";
+
+text_object[0] = (obj_intro_text_0);
+text_object[1] = (obj_intro_text_1);
+text_object[2] = (obj_intro_text_2);
+text_object[3] = (obj_intro_text_3);
+text_object[4] = (obj_intro_text_4);
+text_object[5] = (obj_intro_text_5);
 </string>
           </argument>
         </arguments>
@@ -87,30 +125,6 @@ if player.x &gt;= 400 passed_400 = 1;
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>526</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_font</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>12</kind>
-            <font>font_arial_4_off</font>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -126,11 +140,28 @@ if player.x &gt;= 400 passed_400 = 1;
           <argument>
             <kind>1</kind>
             <string>/// Display Intro Text
-draw_text(xx,yy-40,"the chicken dashed RIGHT like an ARROW");
-draw_text(xx-180,yy-50,"it wanted to soar like an eagle");
-draw_text(xx-360,yy-100,"it knew flying UPwards was KEY");
-if passed_400 = 1 draw_text(xx-400,yy+20,"but it never lasted");
-draw_text(xx-500,yy-100,"the chicken needed more SPACE");
+draw_set_font(f_effort);
+/*var i;
+length = array_length_1d(intro_text);
+for (i = 0; i &lt; length-1; i += 1)
+    {
+    location = text_object[i];
+    xx = (location).x;
+    yy = (location).y;
+    script_execute(scr_display_text,xx,yy,intro_text[i])
+    }
+if passed_400 == 1 
+*/
+
+draw_text_ext_transformed((obj_intro_text_0).x, (obj_intro_text_0).y, string(intro_text[0]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_1).x, (obj_intro_text_1).y, string(intro_text[1]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_2).x, (obj_intro_text_2).y, string(intro_text[2]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_3).x, (obj_intro_text_3).y, string(intro_text[3]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_4).x, (obj_intro_text_4).y, string(intro_text[4]), 10, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_5).x, (obj_intro_text_5).y, string(intro_text[5]), 20, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_6).x, (obj_intro_text_6).y, string(intro_text[6]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_7).x, (obj_intro_text_7).y, string(intro_text[7]), 30, 400, size, size, image_angle);
+draw_text_ext_transformed((obj_intro_text_8).x, (obj_intro_text_8).y, string(intro_text[8]), 30, 400, size, size, image_angle);
 </string>
           </argument>
         </arguments>

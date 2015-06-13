@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_platform</sprite>
+    <sprite>sprites\spr_effort</sprite>
     <sprite>sprites\spr_collision</sprite>
     <sprites name="PlayerChicken">
       <sprite>sprites\spr_chicken_run</sprite>
@@ -65,6 +66,7 @@
     <sprite>sprites\spr_titlescreen</sprite>
     <sprite>sprites\spr_fade_in</sprite>
     <sprite>sprites\spr_fade_out</sprite>
+    <sprite>sprites\spr_splot</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_granja</background>
@@ -74,6 +76,7 @@
   <scripts name="scripts">
     <script>scripts\scr_fade_in.gml</script>
     <script>scripts\scr_fade_out.gml</script>
+    <script>scripts\scr_display_text.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_size_12</font>
@@ -87,10 +90,23 @@
     <object>objects\obj_egg</object>
     <object>objects\obj_collision</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_splot</object>
     <object>objects\obj_chicken</object>
-    <object>objects\obj_chicken_intro</object>
     <object>objects\obj_broken_egg</object>
+    <objects name="Intro">
+      <object>objects\obj_intro_listener</object>
+      <object>objects\obj_player_intro</object>
+      <object>objects\obj_splot</object>
+      <object>objects\obj_chicken_intro</object>
+      <object>objects\obj_intro_text_0</object>
+      <object>objects\obj_intro_text_1</object>
+      <object>objects\obj_intro_text_2</object>
+      <object>objects\obj_intro_text_3</object>
+      <object>objects\obj_intro_text_4</object>
+      <object>objects\obj_intro_text_5</object>
+      <object>objects\obj_intro_text_6</object>
+      <object>objects\obj_intro_text_7</object>
+      <object>objects\obj_intro_text_8</object>
+    </objects>
     <object>objects\obj_farmer</object>
     <object>objects\obj_chick</object>
     <objects name="platforms">
@@ -101,18 +117,16 @@
       <object>objects\obj_barrel</object>
     </objects>
     <object>objects\obj_title_ani</object>
-    <object>objects\obj_intro_listener</object>
     <object>objects\obj_fade_in</object>
     <object>objects\obj_main_listener</object>
     <object>objects\obj_fade_out</object>
     <object>objects\obj_title_listener</object>
-    <object>objects\obj_player_intro</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_initialize</room>
+    <room>rooms\rm_intro</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_title</room>
-    <room>rooms\rm_intro</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
