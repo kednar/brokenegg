@@ -30,8 +30,11 @@ player = (obj_player_intro);
 xx = (player).x;
 yy = (player).y;
 passed_400 = 0;
-size = 0.5;
-alarm[0] = 240; // enable flying
+size = 0.25;
+
+intro_check1 = 0;
+intro_check2 = 0;
+
 </string>
           </argument>
         </arguments>
@@ -52,16 +55,18 @@ alarm[0] = 240; // enable flying
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Define Text Strings
+            <string>/// Define Text Strings &amp; Variables
+
 intro_text[0] = "0";
 intro_text[1] = "no SPACE";
 intro_text[2] = "need more SPACE"
-intro_text[3] = "to dash RIGH like an ARROW";
+intro_text[3] = "to dash RIGHT like an ARROW";
 intro_text[4] = "flying UPwards is KEY";
-intro_text[5] = "to soar like an eagle";
-intro_text[6] = "but i am too weak";
+intro_text[5] = "soar through the air";
+intro_text[6] = "too weak";
 intro_text[7] = "soon";
-intro_text[8] = "i will be strong enough";
+intro_text[8] = "will find a way";
+intro_text[9] = "to break free";
 
 text_object[0] = (obj_intro_text_0);
 text_object[1] = (obj_intro_text_1);
@@ -69,6 +74,46 @@ text_object[2] = (obj_intro_text_2);
 text_object[3] = (obj_intro_text_3);
 text_object[4] = (obj_intro_text_4);
 text_object[5] = (obj_intro_text_5);
+text_object[6] = (obj_intro_text_6);
+text_object[7] = (obj_intro_text_7);
+text_object[8] = (obj_intro_text_8);
+text_object[9] = (obj_intro_text_9);
+
+text0_active = 0;
+text1_active = 1;
+text2_active = 0;
+text3_active = 0;
+text4_active = 0;
+text5_active = 0;
+text6_active = 0;
+text7_active = 0;
+text8_active = 0;
+text9_active = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// too weak
+text6_active = 1;
 </string>
           </argument>
         </arguments>
@@ -115,8 +160,52 @@ text_object[5] = (obj_intro_text_5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Enable Text through player movement
-if player.x &gt;= 400 passed_400 = 1;
+            <string>/// Main listener
+
+hatch_counter = (player).hatch_counter;
+xx = (player).x;
+yy = (player).y;
+
+// Need more SPACE
+if hatch_counter == 3
+    {
+    text1_active = 0;
+    text2_active = 1;
+    }
+
+// RIGHT ARROW
+if hatch_counter &gt;= 7
+    {
+    text2_active = 0;
+    text3_active = 1;
+    }
+
+// UP KEY
+if xx &gt;= 135 &amp;&amp; intro_check1 == 0
+    {
+    alarm[0] = 20; // enable flying
+    text3_active = 0;
+    text4_active = 1;
+    text5_active = 1;
+    intro_check3 = 1;
+    }
+
+// Flying
+if intro_check2 == 0
+    {
+    if xx &gt;= 160 || yy &lt;= 100
+        {
+        size = 0.5;
+        (player).movespeed = 1.5;
+        alarm[1] = 30; // spawn "too weak"
+        view_hview[0] = 180;
+        view_wview[0] = 360;
+        view_xview[0] = 50;
+        view_yview[0] = 0;
+        view_object[0] = obj_player_intro;
+        intro_check2 = 1;
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -153,15 +242,16 @@ for (i = 0; i &lt; length-1; i += 1)
 if passed_400 == 1 
 */
 
-draw_text_ext_transformed((obj_intro_text_0).x, (obj_intro_text_0).y, string(intro_text[0]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_1).x, (obj_intro_text_1).y, string(intro_text[1]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_2).x, (obj_intro_text_2).y, string(intro_text[2]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_3).x, (obj_intro_text_3).y, string(intro_text[3]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_4).x, (obj_intro_text_4).y, string(intro_text[4]), 10, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_5).x, (obj_intro_text_5).y, string(intro_text[5]), 20, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_6).x, (obj_intro_text_6).y, string(intro_text[6]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_7).x, (obj_intro_text_7).y, string(intro_text[7]), 30, 400, size, size, image_angle);
-draw_text_ext_transformed((obj_intro_text_8).x, (obj_intro_text_8).y, string(intro_text[8]), 30, 400, size, size, image_angle);
+if text0_active == 1 draw_text_ext_transformed((obj_intro_text_0).x, (obj_intro_text_0).y, string(intro_text[0]), 30, 400, size, size, image_angle);
+if text1_active == 1 draw_text_ext_transformed((obj_intro_text_1).x, (obj_intro_text_1).y, string(intro_text[1]), 30, 400, size, size, image_angle);
+if text2_active == 1 draw_text_ext_transformed((obj_intro_text_2).x, (obj_intro_text_2).y, string(intro_text[2]), 30, 400, size, size, image_angle);
+if text3_active == 1 draw_text_ext_transformed((obj_intro_text_3).x, (obj_intro_text_3).y, string(intro_text[3]), 30, 400, size, size, image_angle);
+if text4_active == 1 draw_text_ext_transformed((obj_intro_text_4).x, (obj_intro_text_4).y, string(intro_text[4]), 10, 400, size, size, image_angle);
+if text5_active == 1 draw_text_ext_transformed((obj_intro_text_5).x, (obj_intro_text_5).y, string(intro_text[5]), 20, 400, size, size, image_angle);
+if text6_active == 1 draw_text_ext_transformed((obj_intro_text_6).x, (obj_intro_text_6).y, string(intro_text[6]), 30, 400, size, size, image_angle);
+if text7_active == 1 draw_text_ext_transformed((obj_intro_text_7).x, (obj_intro_text_7).y, string(intro_text[7]), 30, 400, size, size, image_angle);
+if text8_active == 1 draw_text_ext_transformed((obj_intro_text_8).x, (obj_intro_text_8).y, string(intro_text[8]), 30, 400, size, size, image_angle);
+if text9_active == 1 draw_text_ext_transformed((obj_intro_text_9).x, (obj_intro_text_9).y, string(intro_text[9]), 30, 400, size, size, image_angle);
 </string>
           </argument>
         </arguments>
