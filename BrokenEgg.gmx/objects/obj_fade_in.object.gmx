@@ -28,7 +28,7 @@
             <string>/// Initialize Values
 
 fadeSpeed = 5;
-fadeAlpha = 1.0;
+fadeAlpha = 0.95;
 alarm[0] = fadeSpeed;
 global.faded_in = 0;
 </string>
@@ -55,7 +55,7 @@ global.faded_in = 0;
             <kind>1</kind>
             <string>alarm[0] = fadeSpeed;
 fadeAlpha -= 0.05;
-if ( fadeAlpha &lt;= 0 )
+if fadeAlpha == 0
     {
     global.faded_in = 1;
     instance_destroy();

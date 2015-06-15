@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Intro
+            <string>/// Define Values
 player = (obj_player_intro);
 xx = (player).x;
 yy = (player).y;
@@ -33,8 +33,13 @@ passed_400 = 0;
 size = 0.25;
 
 intro_check1 = 0;
-intro_check2 = 0;
+intro_check2 = 1;
+intro_check3 = 0;
+intro_check4 = 1;
+intro_check5 = 1;
+intro_check6 = 1;
 
+zooming = 0;
 </string>
           </argument>
         </arguments>
@@ -65,7 +70,7 @@ intro_text[4] = "flying UPwards is KEY";
 intro_text[5] = "soar through the air";
 intro_text[6] = "too weak";
 intro_text[7] = "soon";
-intro_text[8] = "will find a way";
+intro_text[8] = "must find a way";
 intro_text[9] = "to break free";
 
 text_object[0] = (obj_intro_text_0);
@@ -112,8 +117,7 @@ text9_active = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// too weak
-text6_active = 1;
+            <string>instance_create(0,0,obj_fade_out);
 </string>
           </argument>
         </arguments>
@@ -187,7 +191,8 @@ if xx &gt;= 135 &amp;&amp; intro_check1 == 0
     text3_active = 0;
     text4_active = 1;
     text5_active = 1;
-    intro_check3 = 1;
+    intro_check1 = 1;
+    intro_check2 = 0;
     }
 
 // Flying
@@ -195,20 +200,164 @@ if intro_check2 == 0
     {
     if xx &gt;= 160 || yy &lt;= 100
         {
-        size = 0.5;
         (player).movespeed = 1.5;
-        alarm[1] = 30; // spawn "too weak"
-        view_hview[0] = 180;
-        view_wview[0] = 360;
-        view_xview[0] = 50;
-        view_yview[0] = 0;
-        view_object[0] = obj_player_intro;
+        zooming = 1;
         intro_check2 = 1;
+        text4_active = 0;
+        }
+    }
+
+// Too weak
+if intro_check3 == 0
+    {
+    if xx &gt;= (obj_intro_text_6).x
+        {
+        text5_active = 0;
+        text6_active = 1;
+        intro_check3 = 1;
+        intro_check4 = 0;
+        }
+    }
+
+// Soon
+if intro_check4 == 0
+    {
+    if xx &gt;= (obj_intro_text_7).x
+        {
+        text6_active = 0;
+        text7_active = 1;
+        intro_check4 = 1;
+        intro_check5 = 0;
+        }
+    }
+
+// must find a way
+if intro_check5 == 0
+    {
+    if xx &gt;= (obj_intro_text_8).x
+        {
+        text7_active = 0;
+        text8_active = 1;
+        intro_check5 = 1;
+        intro_check6 = 0;
+        }
+    }
+
+// to break free
+if intro_check6 == 0
+    {
+    if xx &gt;= (obj_intro_text_9).x
+        {
+        text8_active = 0;
+        text9_active = 1;
+        intro_check6 = 1;
+        alarm[1] = 120; // fade to black, next room
         }
     }
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Zooming Out
+
+if zooming == 1
+    {
+    view_hview[0] += ((180-45)/150);
+    view_wview[0] += ((360-90)/150);
+    view_yview[0] -= (70/150);
+    size += (0.25/150);
+    view_object[0] = obj_player_intro;
+    if view_hview [0] == 180 zooming = 0;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>612</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>-1</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_if_variable</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.faded_out</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>222</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_next_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
@@ -255,6 +404,22 @@ if text9_active == 1 draw_text_ext_transformed((obj_intro_text_9).x, (obj_intro_
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="82">
+      <action>
+        <libid>1</libid>
+        <id>223</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_current_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>
