@@ -283,7 +283,7 @@ if zooming == 1
     view_yview[0] -= (70/150);
     size += (0.25/150);
     view_object[0] = obj_player_intro;
-    if view_hview [0] == 180 zooming = 0;
+    if view_hview [0] &gt;= 180 zooming = 0;
     }
 </string>
           </argument>
