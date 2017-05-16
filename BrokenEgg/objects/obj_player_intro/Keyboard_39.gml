@@ -1,0 +1,2 @@
+global.hdir = 1;
+

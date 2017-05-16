@@ -1,0 +1,233 @@
+Exception while converting ${project_dir}\scripts\scr_fade_in\scr_fade_in.gml : System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at YoYoStudio.GMX.GMXFile.GML1XReparse(String _original, String _desc, Boolean fExpression, Boolean f1XParse)
+------------------------------------------------------------------------------
+Original was
+------------------------------------------------------------------------------
+/// Fade In
+------------------------------------------------------------------------------
+Current Result was
+------------------------------------------------------------------------------
+/// @description  Fade In
+Exception while converting ${project_dir}\scripts\scr_fade_out\scr_fade_out.gml : System.ArgumentOutOfRangeException: Length cannot be less than zero.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at YoYoStudio.GMX.GMXFile.GML1XReparse(String _original, String _desc, Boolean fExpression, Boolean f1XParse)
+------------------------------------------------------------------------------
+Original was
+------------------------------------------------------------------------------
+/// Fade Out
+------------------------------------------------------------------------------
+Current Result was
+------------------------------------------------------------------------------
+/// @description  Fade Out
+Font font_arial_4_off has been converted to font family Arial (Regular). Font has been regenerated, small inconsistencies may occur.
+Font font_size_12 has been converted to font family Calibri (Regular). Font has been regenerated, small inconsistencies may occur.
+!!! Font bellota uses a font (Bellota) not installed on this system. Font has NOT been regenerated.
+Converting GML script : ${project_dir}\objects\obj_egg_splat\Create_0.gml
+Converted description : /// @description  set alarm 0
+
+Converting GML script : ${project_dir}\objects\obj_egg_splat\Alarm_0.gml
+Converted description : /// @description  destroy the instance
+
+Converting GML script : ${project_dir}\objects\obj_egg\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_egg\Alarm_3.gml
+Converted description : /// @description  hatch a chick
+
+Converting GML script : ${project_dir}\objects\obj_egg\Alarm_2.gml
+Converted description : /// @description  third crack
+
+Converting GML script : ${project_dir}\objects\obj_egg\Alarm_1.gml
+Converted description : /// @description  second crack
+
+Converting GML script : ${project_dir}\objects\obj_egg\Alarm_0.gml
+Converted description : /// @description  first crack
+
+Converting GML script : ${project_dir}\objects\obj_egg\Step_0.gml
+ERROR : C:\Users\INDIEFLAT\wkspaces\BrokenEgg\objects\obj_egg\Step_0.gml : 55 : nested function calls are not allowed
+ERROR : C:\Users\INDIEFLAT\wkspaces\BrokenEgg\objects\obj_egg\Step_0.gml : 61 : unexpected syntax error
+ERROR : C:\Users\INDIEFLAT\wkspaces\BrokenEgg\objects\obj_egg\Step_0.gml : 85 : unexpected syntax error
+Too many errors - GML not processed : ${project_dir}\objects\obj_egg\Step_0.gml
+
+Converting GML script : ${project_dir}\objects\obj_chicken\Create_0.gml
+Converted description : /// @description  Initialize Variables
+
+Converting GML script : ${project_dir}\objects\obj_chicken\Alarm_3.gml
+Converted description : /// @description Resume Movement
+
+Converting GML script : ${project_dir}\objects\obj_chicken\Alarm_2.gml
+Converted description : /// @description  Stop for a second
+
+Converting GML script : ${project_dir}\objects\obj_chicken\Alarm_1.gml
+Converted description : /// @description  Change direction
+
+Converting GML script : ${project_dir}\objects\obj_chicken\Alarm_0.gml
+Converted description : /// @description  Idle Behavior
+
+Converting GML script : ${project_dir}\objects\obj_egg_splat_stay\Create_0.gml
+Converted description : /// @description  set alarm 0
+
+Converting GML script : ${project_dir}\objects\obj_egg_splat_stay\Alarm_0.gml
+Converted description : /// @description  destroy the instance
+
+Converting GML script : ${project_dir}\objects\obj_egg_splat_head\Create_0.gml
+Converted description : /// @description  set alarm 0
+
+Converting GML script : ${project_dir}\objects\obj_egg_splat_head\Alarm_0.gml
+Converted description : /// @description  destroy the instance
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\Alarm_0.gml
+Converted description : /// @description  Destroy all instances except farmer
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\Step_0.gml
+Converted description : /// @description  Check For Game Over State
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\KeyPress_72.gml
+Converted description : /// @description  increase farmer hearts by one
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\KeyPress_71.gml
+Converted description : /// @description  decrease farmer hearts by one
+
+Converting GML script : ${project_dir}\objects\obj_main_listener\KeyPress_69.gml
+Converted description : /// @description  Set Gameover State
+
+Converting GML script : ${project_dir}\objects\obj_player\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_player\Alarm_1.gml
+Converted description : /// @description  Jump reset
+
+Converting GML script : ${project_dir}\objects\obj_player\Alarm_0.gml
+Converted description : /// @description  Laying Egg Animation reset
+
+Converting GML script : ${project_dir}\objects\obj_player\Step_0.gml
+Converted description : /// @description  Get the player's input
+
+Converting GML script : ${project_dir}\objects\obj_player\Keyboard_39.gml
+Converted description : /// @description  global.hdir = 1
+
+Converting GML script : ${project_dir}\objects\obj_player\Keyboard_37.gml
+Converted description : /// @description  global.hdir = -1
+
+Converting GML script : ${project_dir}\objects\obj_player\Other_0.gml
+Converted description : /// @description  Respawn Player inside of room
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Create_0.gml
+Converted description : /// @description  Initialize Variables
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_5.gml
+Converted description : /// @description  Add platform on farmer when dead
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_4.gml
+Converted description : /// @description  Stop fainting animation
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_3.gml
+Converted description : /// @description  End Hit Animation
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_2.gml
+Converted description : /// @description  Start vulnerability
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_1.gml
+Converted description : /// @description  End Picking Animation
+
+Converting GML script : ${project_dir}\objects\obj_farmer\Alarm_0.gml
+Converted description : /// @description  Make the Egg Disappear
+
+Converting GML script : ${project_dir}\objects\obj_intro_listener\Create_0.gml
+Converted description : /// @description  Define Values
+
+Converting GML script : ${project_dir}\objects\obj_intro_listener\Alarm_0.gml
+Converted description : /// @description  Enable flying
+
+Converting GML script : ${project_dir}\objects\obj_intro_listener\Step_0.gml
+Converted builtin : line 98 : view_yview[0] -= (70/150) -> __view_set( e__VW.YView, 0, __view_get( e__VW.YView, 0 ) - ((70/150)) )
+Converted builtin : line 97 : view_wview[0] += ((360-90)/150) -> __view_set( e__VW.WView, 0, __view_get( e__VW.WView, 0 ) + (((360-90)/150)) )
+Converted builtin : line 101 : view_hview [0] -> __view_get( e__VW.HView, 0 )
+Converted builtin : line 96 : view_hview[0] += ((180-45)/150) -> __view_set( e__VW.HView, 0, __view_get( e__VW.HView, 0 ) + (((180-45)/150)) )
+Converted builtin : line 100 : view_object[0] = obj_player_intro -> __view_set( e__VW.Object, 0, obj_player_intro )
+Converted description : /// @description  Main listener
+
+Converting GML script : ${project_dir}\objects\obj_intro_listener\Draw_0.gml
+Converted description : /// @description  Display Intro Text
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Alarm_2.gml
+Converted description : /// @description  Enable Controls for intro
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Alarm_1.gml
+Converted description : /// @description  Jump reset
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Alarm_0.gml
+Converted description : /// @description  Laying Egg Animation reset
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Step_0.gml
+Converted description : /// @description  Get the player's input
+
+Converting GML script : ${project_dir}\objects\obj_player_intro\Other_0.gml
+Converted description : /// @description  Respawn Player inside of room
+
+Converting GML script : ${project_dir}\objects\obj_splot\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Create_0.gml
+Converted description : /// @description  Initialize Variables
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Alarm_4.gml
+Converted description : /// @description  Reset walking after being hit
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Alarm_3.gml
+Converted description : /// @description Resume Movement
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Alarm_2.gml
+Converted description : /// @description  Stop for a second
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Alarm_1.gml
+Converted description : /// @description  Change direction
+
+Converting GML script : ${project_dir}\objects\obj_chicken_intro\Alarm_0.gml
+Converted description : /// @description  Idle Behavior
+
+Converting GML script : ${project_dir}\objects\obj_title_listener\Create_0.gml
+Converted description : /// @description  Fade In
+
+Converting GML script : ${project_dir}\objects\obj_fade_in\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_fade_in\Draw_0.gml
+Converted builtin : line 2 : view_wport -> __view_get( e__VW.WPort, 0 )
+Converted builtin : line 2 : view_hport -> __view_get( e__VW.HPort, 0 )
+
+macOS icon ${options_dir}\mac\icons\icon512.png written out as 32-bit.
+Converting GML script : ${project_dir}\objects\obj_fade_out\Create_0.gml
+Converted description : /// @description  Initialize Values
+
+Converting GML script : ${project_dir}\objects\obj_fade_out\Draw_0.gml
+Converted builtin : line 2 : view_wport -> __view_get( e__VW.WPort, 0 )
+Converted builtin : line 2 : view_hport -> __view_get( e__VW.HPort, 0 )
+
+Converting GML script : ${project_dir}\rooms\rm_initialize\RoomCreationCode.gml
+Converted string : line 9 : '!' -> "!"
+
+game speed set to 60
+added compatibility script action/action_current_room.gml
+added compatibility script action/action_font.gml
+added compatibility script action/action_if_variable.gml
+added compatibility script action/action_next_room.gml
+added compatibility script instance/instance_create.gml
+added compatibility script object/object_get_depth.gml
+added compatibility script object/object_set_depth.gml
+added compatibility script view/__view_get.gml
+added compatibility script view/__view_set.gml
+added compatibility script view/__view_set_internal.gml
+added compatibility script action/__init_action.gml
+added compatibility script view/__init_view.gml
+added compatibility script __init_global.gml
+added compatibility script __global_object_depths.gml
